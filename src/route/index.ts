@@ -1,7 +1,8 @@
 import express from "express";
-const router = express.Router();
 
 import indexController from "../controller/index";
+
+const router = express.Router();
 
 router.get("/", indexController.indexPage);
 
