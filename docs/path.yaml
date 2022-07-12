@@ -1,0 +1,5 @@
+# /imgs/{src}:
+#   $ref: "common/common.imgs.yaml"
+# /form/{saveName}:
+#   $ref: "common/common.formFiles.yaml"
+
