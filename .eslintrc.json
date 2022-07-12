@@ -16,8 +16,20 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi" : "off" , 
-        "@typescript-eslint/semi" : [ "error" ],
-        "quotes": [2, "double", { "avoidEscape": false }]
+        "semi": [
+            "error",
+            "always"
+        ],
+        "@typescript-eslint/semi" : [
+            "error",
+            "always" 
+        ],
+        "quotes": [
+            2, 
+            "double",
+            { "avoidEscape": false }
+        ],
+        "space-before-function-paren":"off",
+        "array-callback-return" : "off"
     }
 }
