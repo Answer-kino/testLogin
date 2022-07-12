@@ -1,7 +1,11 @@
 import app from "./config/express";
+import "src/config/database";
+import { logger } from "src/config/logger";
+import { Config } from "src/config/config";
 
-const port = process.env.PORT || 3001;
+const port = Config.server.port || 4500;
 
 app.listen(port, async () => {
-  console.log(`Server listening on port : ${port}`);
+  logger.info(`Server listening on port : ${port}`);
+  logger.info(`Server MODE : ${Config.server.mode}`);
 });
