@@ -3,13 +3,13 @@ import { Config } from "src/config/config";
 
 interface User {
   id: string;
-  name: string;
+  userIdx: string;
 }
 
 export const jwtSign = (user: User) => {
   const payload = {
     id: user.id,
-    name: user.name
+    userIdx: user.userIdx
   };
 
   return jwt.sign(payload, Config.jwt.secret, {
@@ -25,7 +25,7 @@ export const jwtVerify = (token: string) => {
     return {
       status: true,
       id: decode.id,
-      name: decode.name
+      userIdx: decode.userIdx
     };
   } catch (error: any) {
     return {

@@ -7,8 +7,8 @@ export const authJWT: MController = (req: any, res, next) => {
     const result = jwtVerify(token); // token을 검증합니다.
     if (result.status) {
       // token이 검증되었으면 req에 값을 세팅하고, 다음 콜백함수로 갑니다.
+      req.userIdx = result.userIdx;
       req.id = result.id;
-      req.name = result.name;
       next();
     } else {
       // 검증에 실패하거나 토큰이 만료되었다면 클라이언트에게 메세지를 담아서 응답합니다.
