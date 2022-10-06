@@ -8,7 +8,6 @@ export default class ApiResponse {
     res.status(status);
 
     res.json({
-      success: true,
       data
     });
   };

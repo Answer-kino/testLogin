@@ -1,5 +1,9 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
-export default interface IController {
+export interface IController {
   (req: Request, res: Response): void;
+}
+
+export interface MController {
+  (req: Request, res: Response, next: NextFunction): void;
 }

@@ -1,7 +1,7 @@
-import IController from "../interface/IController";
+import { IController } from "../interface/IController";
 
 export default class indexController {
   static indexPage: IController = async (req, res) => {
-    res.send("AI Sucess");
+    res.send("Node Sucess");
   };
 }
