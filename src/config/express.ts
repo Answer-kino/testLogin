@@ -7,8 +7,27 @@ import { Config } from "src/config/config";
 import { logger, stream } from "src/config/logger";
 import indexRotuer from "src/route/index";
 import userRotuer from "src/route/user";
+import cors, { CorsOptions } from "cors";
+import { StatusCodes } from "http-status-codes";
 
 const app = express();
+const allowedOrigins = process.env.FRONT_SERVER;
+/**
+ * express Cors Settings
+ */
+const corsOption: CorsOptions = {
+  allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
+  origin: function (origin: any, callback) {
+    const isWhiteList = allowedOrigins?.indexOf(origin) !== 1;
+    callback(null, isWhiteList);
+  },
+  methods: "GET,POST,OPTIONS",
+  credentials: true,
+  preflightContinue: false,
+  maxAge: 3600,
+  optionsSuccessStatus: StatusCodes.OK
+};
+app.use(cors(corsOption));
 
 /**
  * express JSON & URLENCODED
